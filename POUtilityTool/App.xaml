@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:POUtilityTool">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <SolidColorBrush x:Key="BorderTypical" Color="#142b1b" />
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
