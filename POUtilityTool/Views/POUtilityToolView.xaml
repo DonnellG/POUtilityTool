@@ -5,43 +5,54 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:POUtilityTool.Views" 
              xmlns:components="clr-namespace:POUtilityTool.Components"
+             xmlns:vm="clr-namespace:POUtilityTool.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+  <UserControl.Resources>
+    <vm:POUtilityToolViewModel x:Key="vm"/>
+  </UserControl.Resources>
+  <Grid DataContext="{StaticResource vm}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="5*" />
-            <RowDefinition Height="0.5*" />
         </Grid.RowDefinitions>
-
-        <TextBlock Grid.Row="0" Text="PO Ultility Tool" FontSize="36" VerticalAlignment="Center" Margin="0 0 0 10"/>
-        
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="3*" />
-            </Grid.ColumnDefinitions>
-
-            <components:POUtilityToolListing Grid.Column="0" DataContext="{Binding POUltilityToolListingViewModel}"/>
-            <components:POUtilityToolDetails Grid.Column="1" Margin="10 0 0 0" DataContext="{Binding POUltilityToolDetailsViewModel}"/>
-
-        </Grid>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height=".75*" />
-                    <RowDefinition Height="2*" />
-                    <RowDefinition Height=".75*" />
-                </Grid.RowDefinitions>
-
-                <Button Grid.Row="1" Padding="20 0 20 0" Content="Edit User Inputs" FontSize="11" Cursor="Hand" Command="{Binding EditUserDetailsCommand}"/>
-            </Grid>
-
-        </Grid>
+    <Grid Grid.Row="0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="2*"/>
+        <ColumnDefinition Width=".5*"/>
+      </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" 
+                   Text="PO Ultility Tool" 
+                   FontSize="36" 
+                   VerticalAlignment="Center" 
+                   Margin="0 0 0 10"/>
+      <Button Grid.Column="1"
+              Padding="1"
+              HorizontalAlignment="Right"
+              Width="32"
+              Height="32"
+              Background="Transparent"
+              BorderBrush="Transparent"
+              Command="{Binding ShowDevOpsInfoCommand}">
+        <Button.Content>
+          <Image Source="pack://application:,,,/Images/Setup-64.png"/>
+        </Button.Content>
+      </Button>
     </Grid>
+    <Grid Grid.Row="1">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="3*" />
+      </Grid.ColumnDefinitions>
+
+      <components:POUtilityToolListing Grid.Column="0" DataContext="{Binding POUltilityToolListingViewModel}"/>
+      <components:DevOpsInfoView Grid.Column="1" Margin="10 0 0 0"
+                                 Visibility="{Binding DevOpsInfoVis}"/>
+      <components:FeaturesView Grid.Column="1" Margin="10 0 0 0"
+                                     Visibility="{Binding FeatureVis}"/>
+      <components:WorkItemsView Grid.Column="1" Margin="10 0 0 0"
+                                     Visibility="{Binding WorkItemsVis}"/>
+
+    </Grid>
+  </Grid>
 </UserControl>

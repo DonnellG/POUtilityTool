@@ -14,7 +14,8 @@
                     <VisualBrush Visual="{Binding ElementName=border}" />
                 </Grid.OpacityMask>
                 <Border x:Name="border" Background="White" CornerRadius="10" />
-                <ListView BorderThickness="0" ItemsSource="{Binding POUtilityToolListingItemsViewModel}">
+                <ListView BorderThickness="0" SelectedItem="{Binding SelectedListingItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                          ItemsSource="{Binding POUtilityToolListingItemsViewModel}">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem" >
                             <Setter Property="HorizontalContentAlignment" Value="Stretch" />

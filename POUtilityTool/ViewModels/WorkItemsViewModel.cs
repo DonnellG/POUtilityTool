@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POUtilityTool.ViewModels
 {
-    public class POUltilityToolDetailsViewModel : ViewModelBase
+    public class WorkItemsViewModel : ViewModelBase
     {
     }
 }

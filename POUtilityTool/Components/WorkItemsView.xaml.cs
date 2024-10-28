@@ -1,5 +1,4 @@
-﻿using POUtilityTool.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace POUtilityTool.Views
+namespace POUtilityTool.Components
 {
     /// <summary>
-    /// Interaction logic for POUtilityToolView.xaml
+    /// Interaction logic for WorkItemsView.xaml
     /// </summary>
-    public partial class POUtilityToolView : UserControl
+    public partial class WorkItemsView : UserControl
     {
-        public POUtilityToolView()
+        public WorkItemsView()
         {
             InitializeComponent();
         }

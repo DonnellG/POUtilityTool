@@ -9,7 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Setup-64.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DropdownMenu.WPF" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Setup-64.png" />
   </ItemGroup>
 
 </Project>
