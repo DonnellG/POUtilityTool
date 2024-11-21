@@ -8,5 +8,9 @@ namespace POUtilityTool.ViewModels
 {
     public class FeaturesViewModel : ViewModelBase
     {
+        public FeaturesViewModel()
+        {
+            //todo
+        }
     }
 }

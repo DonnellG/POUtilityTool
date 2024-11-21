@@ -14,7 +14,7 @@ namespace POUtilityTool
         {
             MainWindow = new MainWindow() 
             {
-                DataContext = new POUtilityToolViewModel()
+                //DataContext = new POUtilityToolViewModel()
             };
             MainWindow.Show();
 

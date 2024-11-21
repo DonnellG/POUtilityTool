@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="POUtilityTool.Components.UserInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:POUtilityTool.Components"
+             xmlns:vm="clr-namespace:POUtilityTool.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+  <UserControl.Resources>
+    <vm:UserInfoViewModel x:Key="vm"/>
+  </UserControl.Resources>
+    <Grid DataContext="{StaticResource vm}">
+    <Border BorderBrush="{StaticResource BorderTypical}" BorderThickness="1.5" CornerRadius="10" Padding="15" SnapsToDevicePixels="True">
+      <StackPanel>
+        <TextBlock Text="Personal Access Token:"/>
+        <TextBox Text="{Binding PersonalAccessToken, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Organization Name"/>
+        <TextBox Text="{Binding OrgName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Project:"/>
+        <TextBox Text="{Binding Project, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Area Path"/>
+        <TextBox Text="{Binding AreaPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Select you Excel File"
+                Command="{Binding ExcelBrowseFileCommand}"
+                Margin="0,10,0,5"/>
+        <Button Content="Select you PPT File"
+                Command="{Binding PPTBrowseFileCommand}"
+                Margin="0,5,0,10"/>
+
+        <Button Content="Save"
+                Command="{Binding SaveUserInfoCommand}"
+                CommandParameter="{Binding UserInfo}"
+                Margin="10,0,10,10"
+                Width="120"
+                Height="25"/>
+        <TextBlock Text="{Binding AuthenticationResponse}"/>
+      </StackPanel>
+      
+    </Border>
+  </Grid>
+</UserControl>
