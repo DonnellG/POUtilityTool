@@ -53,15 +53,23 @@ namespace POUtilityTool.ViewModels.Helpers
                 string patToken = Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes($":{pat}"));
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", patToken);
 
-                HttpResponseMessage response = await httpClient.GetAsync(authenticationUri);
+                HttpResponseMessage response = await client.GetAsync(authenticationUri);
 
                 if (response.IsSuccessStatusCode)
                 {
                     return "Authentication successful";
                 }
+                else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    return "Authentication failed: Invalid PAT.";
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    return "Invalid Organization URI.";
+                }
                 else
                 {
-                    return "Authentication Failed";
+                    return $"Unexpected error: {response.StatusCode}"; ;
                 }
             }
         }
