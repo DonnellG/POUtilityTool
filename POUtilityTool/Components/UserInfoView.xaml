@@ -7,10 +7,7 @@
              xmlns:vm="clr-namespace:POUtilityTool.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-  <UserControl.Resources>
-    <vm:UserInfoViewModel x:Key="vm"/>
-  </UserControl.Resources>
-    <Grid DataContext="{StaticResource vm}">
+  <Grid>
     <Border BorderBrush="{StaticResource BorderTypical}" BorderThickness="1.5" CornerRadius="10" Padding="15" SnapsToDevicePixels="True">
       <StackPanel>
         <TextBlock Text="Personal Access Token:"/>

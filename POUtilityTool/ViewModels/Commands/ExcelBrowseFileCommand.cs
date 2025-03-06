@@ -26,6 +26,11 @@ namespace POUtilityTool.ViewModels.Commands
             return true;
         }
 
+        public void ExecuteAsync(object? parameter)
+        {
+            VM.ExcelBrowseFile();
+        }
+
         public void Execute(object? parameter)
         {
             VM.ExcelBrowseFile();

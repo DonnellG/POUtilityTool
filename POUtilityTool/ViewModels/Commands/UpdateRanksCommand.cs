@@ -7,12 +7,12 @@ using System.Windows.Input;
 
 namespace POUtilityTool.ViewModels.Commands
 {
-    public class GenerateFeaturesCommand : ICommand
+    public class UpdateRanksCommand : ICommand
     {
         public FeaturesViewModel VM { get; set; }
-        public GenerateFeaturesCommand(FeaturesViewModel vm)
-        {
-            VM = vm;
+        public UpdateRanksCommand(FeaturesViewModel vm) 
+        { 
+            VM = vm; 
         }
         public event EventHandler? CanExecuteChanged;
 
@@ -23,7 +23,7 @@ namespace POUtilityTool.ViewModels.Commands
 
         public void Execute(object? parameter)
         {
-            VM.GenerateFeaturesAsync();
+            VM.UpdateRanks();
         }
     }
 }
