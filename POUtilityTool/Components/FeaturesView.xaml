@@ -8,12 +8,10 @@
              xmlns:uc="clr-namespace:POUtilityTool.Views.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="510">
-  <UserControl.Resources>
-    <vm:FeaturesViewModel x:Key="vm"/>
-  </UserControl.Resources>
-    <Grid DataContext="{StaticResource vm}">
+  <Border BorderBrush="{StaticResource BorderTypical}" BorderThickness="1.5" CornerRadius="10" Padding="15" SnapsToDevicePixels="True">
+    <Grid>
       <Grid.RowDefinitions>
-      <RowDefinition Height=".25*"/>
+      <RowDefinition Height=".40*"/>
       <RowDefinition Height="4*"/>
       <RowDefinition Height="*"/>
       </Grid.RowDefinitions>
@@ -58,13 +56,21 @@
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="*"/>
           <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-          <Button Content="Generate Features"/>
+          <Button Content="Update Ranks"
+                  Command="{Binding UpdateRanksCommand}"/>
         </StackPanel>
         <StackPanel Grid.Column="1">
-          <Button Content="Second Button"/>
+          <Button Content="Generate Features"
+                  Command="{Binding GenerateFeaturesCommand}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2">
+          <Button Content="Send Features to Excel"
+                  Command="{Binding FeaturesToExcel}"/>
         </StackPanel>
       </Grid>
   </Grid>
+    </Border>
 </UserControl>

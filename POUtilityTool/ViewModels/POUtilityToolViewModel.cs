@@ -61,14 +61,14 @@ namespace POUtilityTool.ViewModels
 
         public POUtilityToolViewModel()
         {
-            //QueryHelper = new QueryHelper();  //I need to use the same helper for each Vis... maybe??
+            QueryHelper = new QueryHelper();  //I need to use the same helper for each Vis... maybe??
 
             //Init Models
             POUltilityToolListingViewModel = new POUltilityToolListingViewModel(this);
             POUltilityToolDetailsViewModel = new POUltilityToolDetailsViewModel();
-            //UserInfoViewModel = new UserInfoViewModel{QueryHelper = QueryHelper};
-            FeaturesViewModel = new FeaturesViewModel();
-            WorkItemsViewModel = new WorkItemsViewModel();
+            UserInfoViewModel = new UserInfoViewModel(this);
+            FeaturesViewModel = new FeaturesViewModel(this);
+            WorkItemsViewModel = new WorkItemsViewModel(this);
 
             ShowUserInfoCommand = new ShowUserInfoCommand(this);
 

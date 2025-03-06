@@ -118,8 +118,11 @@ namespace POUtilityTool.ViewModels
         public PPTBrowseFileCommand PPTBrowseFileCommand { get; set; }
 
         //*******************Constructor******************
-        public UserInfoViewModel()
+        public UserInfoViewModel(POUtilityToolViewModel pOUtilityToolViewModel)
         {
+            POUtilityToolViewModel = pOUtilityToolViewModel;
+            QueryHelper = POUtilityToolViewModel.QueryHelper;
+
             SaveUserInfoCommand = new SaveUserInfoCommand(this);
             ExcelBrowseFileCommand = new ExcelBrowseFileCommand(this);
             PPTBrowseFileCommand = new PPTBrowseFileCommand(this);
@@ -160,7 +163,7 @@ namespace POUtilityTool.ViewModels
         }
         private UserInfo UpdateUserInfo(string propName, string value)
         {
-            QueryHelper = new QueryHelper();
+            //QueryHelper = new QueryHelper();
             UserInfo newUserInfo = new UserInfo
             {
                 PersonAccessToken = propName == "PersonAccessToken" ? value : this.PersonalAccessToken,

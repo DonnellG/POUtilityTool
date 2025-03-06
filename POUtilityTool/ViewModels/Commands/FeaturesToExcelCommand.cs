@@ -12,13 +12,18 @@ namespace POUtilityTool.ViewModels.Commands
         public FeaturesViewModel VM { get; set; }
         public FeaturesToExcelCommand(FeaturesViewModel vm)
         {
-            VM = VM;
+            VM = vm;
         }
         public event EventHandler? CanExecuteChanged;
 
         public bool CanExecute(object? parameter)
         {
             return true;
+        }
+
+        public void ExecuteAsync(object? parameter)
+        {
+            VM.FeaturesToExcel();
         }
 
         public void Execute(object? parameter)

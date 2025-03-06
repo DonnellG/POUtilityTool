@@ -25,6 +25,11 @@ namespace POUtilityTool.ViewModels.Commands
             return true;
         }
 
+        public void ExecuteAsync(object? parameter)
+        {
+            VM.PPTBrowseFile();
+        }
+
         public void Execute(object? parameter)
         {
             VM.PPTBrowseFile();

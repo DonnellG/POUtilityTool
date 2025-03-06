@@ -47,11 +47,14 @@
 
       <components:POUtilityToolListing Grid.Column="0" DataContext="{Binding POUltilityToolListingViewModel}"/>
       <components:UserInfoView Grid.Column="1" Margin="10 0 0 0"
-                               Visibility="{Binding UserInfoVis}"/>
+                               Visibility="{Binding DataContext.UserInfoVis, RelativeSource={RelativeSource AncestorType=Grid}}"
+                               DataContext="{Binding UserInfoViewModel}"/>
       <components:FeaturesView Grid.Column="1" Margin="10 0 0 0"
-                                     Visibility="{Binding FeatureVis}"/>
+                               Visibility="{Binding DataContext.FeatureVis, RelativeSource={RelativeSource AncestorType=Grid}}"
+                               DataContext="{Binding FeaturesViewModel}"/>
       <components:WorkItemsView Grid.Column="1" Margin="10 0 0 0"
-                                     Visibility="{Binding WorkItemsVis}"/>
+                                Visibility="{Binding DataContext.WorkItemsVis, RelativeSource={RelativeSource AncestorType=Grid}}"
+                                DataContext="{Binding WorkItemsViewModel}"/>
 
     </Grid>
   </Grid>
