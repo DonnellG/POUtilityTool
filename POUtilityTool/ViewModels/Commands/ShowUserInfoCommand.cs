@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POUtilityTool.ViewModels.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,12 +8,12 @@ using System.Windows.Input;
 
 namespace POUtilityTool.ViewModels.Commands
 {
-    public class ShowDevOpsInfoCommand : ICommand
+    public class ShowUserInfoCommand : ICommand
     {
         public POUtilityToolViewModel VM { get; set; }
         public event EventHandler? CanExecuteChanged;
 
-        public ShowDevOpsInfoCommand(POUtilityToolViewModel vm)
+        public ShowUserInfoCommand(POUtilityToolViewModel vm)
         {
             VM = vm;
         }

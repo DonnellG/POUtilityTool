@@ -7,12 +7,16 @@ using System.Windows.Input;
 
 namespace POUtilityTool.ViewModels.Commands
 {
-    public class ShowDevOpsInfoCommand : ICommand
+    public class ExcelBrowseFileCommand : ICommand
     {
-        public POUtilityToolViewModel VM { get; set; }
-        public event EventHandler? CanExecuteChanged;
+        public event EventHandler? CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
 
-        public ShowDevOpsInfoCommand(POUtilityToolViewModel vm)
+        public UserInfoViewModel VM { get; set; }
+        public ExcelBrowseFileCommand(UserInfoViewModel vm)
         {
             VM = vm;
         }
@@ -24,7 +28,7 @@ namespace POUtilityTool.ViewModels.Commands
 
         public void Execute(object? parameter)
         {
-            VM.ShowUserInfo();
+            VM.ExcelBrowseFile();
         }
     }
 }

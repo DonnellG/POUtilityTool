@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace POUtilityTool.ViewModels
+namespace POUtilityTool.ViewModels.Helpers
 {
-    public class DevOpsInfoViewModel : ViewModelBase
+    internal class ExcelHelper
     {
     }
 }

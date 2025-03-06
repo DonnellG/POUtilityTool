@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POUtilityTool.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +17,11 @@ using System.Windows.Shapes;
 namespace POUtilityTool.Components
 {
     /// <summary>
-    /// Interaction logic for DevOpsInfoView.xaml
+    /// Interaction logic for UserInfoView.xaml
     /// </summary>
-    public partial class DevOpsInfoView : UserControl
+    public partial class UserInfoView : UserControl
     {
-        public DevOpsInfoView()
+        public UserInfoView()
         {
             InitializeComponent();
         }

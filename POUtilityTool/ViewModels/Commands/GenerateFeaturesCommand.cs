@@ -7,15 +7,14 @@ using System.Windows.Input;
 
 namespace POUtilityTool.ViewModels.Commands
 {
-    public class ShowDevOpsInfoCommand : ICommand
+    public class GenerateFeaturesCommand : ICommand
     {
-        public POUtilityToolViewModel VM { get; set; }
-        public event EventHandler? CanExecuteChanged;
-
-        public ShowDevOpsInfoCommand(POUtilityToolViewModel vm)
+        public FeaturesViewModel VM { get; set; }
+        public GenerateFeaturesCommand(FeaturesViewModel vm)
         {
             VM = vm;
         }
+        public event EventHandler? CanExecuteChanged;
 
         public bool CanExecute(object? parameter)
         {
@@ -24,7 +23,7 @@ namespace POUtilityTool.ViewModels.Commands
 
         public void Execute(object? parameter)
         {
-            VM.ShowUserInfo();
+            VM.GenerateFeatures();
         }
     }
 }

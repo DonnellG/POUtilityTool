@@ -33,7 +33,7 @@
               Height="32"
               Background="Transparent"
               BorderBrush="Transparent"
-              Command="{Binding ShowDevOpsInfoCommand}">
+              Command="{Binding ShowUserInfoCommand}">
         <Button.Content>
           <Image Source="pack://application:,,,/Images/Setup-64.png"/>
         </Button.Content>
@@ -46,8 +46,8 @@
       </Grid.ColumnDefinitions>
 
       <components:POUtilityToolListing Grid.Column="0" DataContext="{Binding POUltilityToolListingViewModel}"/>
-      <components:DevOpsInfoView Grid.Column="1" Margin="10 0 0 0"
-                                 Visibility="{Binding DevOpsInfoVis}"/>
+      <components:UserInfoView Grid.Column="1" Margin="10 0 0 0"
+                               Visibility="{Binding UserInfoVis}"/>
       <components:FeaturesView Grid.Column="1" Margin="10 0 0 0"
                                      Visibility="{Binding FeatureVis}"/>
       <components:WorkItemsView Grid.Column="1" Margin="10 0 0 0"

@@ -44,13 +44,13 @@ namespace POUtilityTool.ViewModels
         //Methods
         private void SwitchInfoViews()
         {
-            pOUtilityToolViewModel.DevOpsInfoVis = Visibility.Collapsed;
+            pOUtilityToolViewModel.UserInfoVis = Visibility.Collapsed;
             pOUtilityToolViewModel.FeatureVis = Visibility.Collapsed;
             pOUtilityToolViewModel.WorkItemsVis = Visibility.Collapsed;
 
             if (SelectedListingItem != null)
             {
-                pOUtilityToolViewModel.DevOpsInfoVis = selectedListingItem.CategoryName == "DevOps" ? Visibility.Visible : Visibility.Collapsed;
+                pOUtilityToolViewModel.UserInfoVis = selectedListingItem.CategoryName == "DevOps" ? Visibility.Visible : Visibility.Collapsed;
                 pOUtilityToolViewModel.FeatureVis = selectedListingItem.CategoryName == "Features" ? Visibility.Visible : Visibility.Collapsed;
                 pOUtilityToolViewModel.WorkItemsVis = selectedListingItem.CategoryName == "Work Items" ? Visibility.Visible : Visibility.Collapsed;
             }

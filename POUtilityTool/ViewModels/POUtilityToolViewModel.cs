@@ -1,4 +1,5 @@
 ﻿using POUtilityTool.ViewModels.Commands;
+using POUtilityTool.ViewModels.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,23 +13,24 @@ namespace POUtilityTool.ViewModels
     public class POUtilityToolViewModel : ViewModelBase
     {
         //ViewModels
+        public QueryHelper QueryHelper { get; set; }
         public POUltilityToolListingViewModel POUltilityToolListingViewModel { get; }
         public POUltilityToolDetailsViewModel POUltilityToolDetailsViewModel { get; }
-        public DevOpsInfoViewModel DevOpsInfoViewModel { get; set; }
+        public UserInfoViewModel UserInfoViewModel { get; set; }
         public FeaturesViewModel FeaturesViewModel { get; set; }
         public WorkItemsViewModel WorkItemsViewModel { get; set; }
-        public ShowDevOpsInfoCommand ShowDevOpsInfoCommand { get; set; }
+        public ShowUserInfoCommand ShowUserInfoCommand { get; set; }
 
         //Controlling Visibility
-        private Visibility devOpsInfoVis;
+        private Visibility userInfoVis;
 
-        public Visibility DevOpsInfoVis
+        public Visibility UserInfoVis
         {
-            get { return devOpsInfoVis; }
+            get { return userInfoVis; }
             set
             {
-                devOpsInfoVis = value;
-                OnPropertyChanged("DevOpsInfoVis");
+                userInfoVis = value;
+                OnPropertyChanged("UserInfoVis");
             }
         }
 
@@ -59,25 +61,28 @@ namespace POUtilityTool.ViewModels
 
         public POUtilityToolViewModel()
         {
+            //QueryHelper = new QueryHelper();  //I need to use the same helper for each Vis... maybe??
+
             //Init Models
             POUltilityToolListingViewModel = new POUltilityToolListingViewModel(this);
             POUltilityToolDetailsViewModel = new POUltilityToolDetailsViewModel();
-            DevOpsInfoViewModel = new DevOpsInfoViewModel();
+            //UserInfoViewModel = new UserInfoViewModel{QueryHelper = QueryHelper};
             FeaturesViewModel = new FeaturesViewModel();
             WorkItemsViewModel = new WorkItemsViewModel();
-            ShowDevOpsInfoCommand = new ShowDevOpsInfoCommand(this);
+
+            ShowUserInfoCommand = new ShowUserInfoCommand(this);
 
             //Visibility Init
-            DevOpsInfoVis = Visibility.Visible;
+            UserInfoVis = Visibility.Visible;
             FeatureVis = Visibility.Collapsed;
             WorkItemsVis = Visibility.Collapsed;
         }
 
-        public void ShowDevOpsInfo()
+        public void ShowUserInfo()
         {
             POUltilityToolListingViewModel.SelectedListingItem = null;
 
-            DevOpsInfoVis = Visibility.Visible;
+            UserInfoVis = Visibility.Visible;
             FeatureVis = Visibility.Collapsed;
             WorkItemsVis = Visibility.Collapsed;
         }

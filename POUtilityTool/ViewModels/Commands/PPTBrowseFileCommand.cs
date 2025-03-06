@@ -7,16 +7,19 @@ using System.Windows.Input;
 
 namespace POUtilityTool.ViewModels.Commands
 {
-    public class ShowDevOpsInfoCommand : ICommand
+    public class PPTBrowseFileCommand : ICommand
     {
-        public POUtilityToolViewModel VM { get; set; }
-        public event EventHandler? CanExecuteChanged;
+        public event EventHandler? CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
+        public UserInfoViewModel VM { get; set; }
 
-        public ShowDevOpsInfoCommand(POUtilityToolViewModel vm)
+        public PPTBrowseFileCommand(UserInfoViewModel vm)
         {
             VM = vm;
         }
-
         public bool CanExecute(object? parameter)
         {
             return true;
@@ -24,7 +27,7 @@ namespace POUtilityTool.ViewModels.Commands
 
         public void Execute(object? parameter)
         {
-            VM.ShowUserInfo();
+            VM.PPTBrowseFile();
         }
     }
 }
