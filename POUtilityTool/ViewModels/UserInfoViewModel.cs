@@ -76,6 +76,19 @@ namespace POUtilityTool.ViewModels
                 OnPropertyChanged("AreaPath");
             }
         }
+        private string excelSheetName;
+
+        public string ExcelSheetName
+        {
+            get { return excelSheetName; }
+            set 
+            { 
+                excelSheetName = value;
+                UserInfo = UpdateUserInfo("ExcelSheetName", excelSheetName);
+                OnPropertyChanged("ExcelSheetName");
+            }
+        }
+
         private string excelFilePath;
 
         public string ExcelFilePath
@@ -133,12 +146,10 @@ namespace POUtilityTool.ViewModels
             orgName = "Graitec";
             project = "Proj CANAM Steel";
             areaPath = "Bucket 3";
+            excelSheetName = "Sprint 53";
+
             excelFilePath = @"C:\Users\DonnellGrantham\Graitec\Canam Steel Corp (EXTERNAL) - General\PO Technical Documents\Testing\ONYX Completion Test.xlsx";
             pptFilePath = @"C:\Users\DonnellGrantham\Graitec\Canam Steel Corp (EXTERNAL) - General\PO Technical Documents\Testing\Progress Cards Test.pptx";
-
-
-            AuthenticationResponse = "Donnell Is Right";
-
         }
 
         //Methods
@@ -163,13 +174,13 @@ namespace POUtilityTool.ViewModels
         }
         private UserInfo UpdateUserInfo(string propName, string value)
         {
-            //QueryHelper = new QueryHelper();
             UserInfo newUserInfo = new UserInfo
             {
                 PersonAccessToken = propName == "PersonAccessToken" ? value : this.PersonalAccessToken,
                 OrgName = propName == "OrgName" ? value : this.OrgName,
                 ProjectName = propName == "ProjectName" ? value : this.Project,
                 AreaPath = propName == "AreaPath" ? value : this.AreaPath,
+                ExcelSheetName = propName == "ExcelSheetName" ? value : this.ExcelSheetName,
                 ExcelFilePath = propName == "ExcelFilePath" ? value : this.ExcelFilePath,
                 PPTFilePath = propName == "PPTFilePath" ? value : pptFilePath
             };

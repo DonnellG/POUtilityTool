@@ -7,14 +7,14 @@
              xmlns:components="clr-namespace:POUtilityTool.Components"
              xmlns:vm="clr-namespace:POUtilityTool.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="550" d:DesignWidth="800">
   <UserControl.Resources>
     <vm:POUtilityToolViewModel x:Key="vm"/>
   </UserControl.Resources>
   <Grid DataContext="{StaticResource vm}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="5*" />
+            <RowDefinition Height="7*" />
         </Grid.RowDefinitions>
     <Grid Grid.Row="0">
       <Grid.ColumnDefinitions>
@@ -45,14 +45,14 @@
         <ColumnDefinition Width="3*" />
       </Grid.ColumnDefinitions>
 
-      <components:POUtilityToolListing Grid.Column="0" DataContext="{Binding POUltilityToolListingViewModel}"/>
-      <components:UserInfoView Grid.Column="1" Margin="10 0 0 0"
+      <components:POUtilityToolListing Grid.Column="0" DataContext="{Binding POUltilityToolListingViewModel}" Margin="0 0 0 15"/>
+      <components:UserInfoView Grid.Column="1" Margin="10 0 0 15"
                                Visibility="{Binding DataContext.UserInfoVis, RelativeSource={RelativeSource AncestorType=Grid}}"
                                DataContext="{Binding UserInfoViewModel}"/>
-      <components:FeaturesView Grid.Column="1" Margin="10 0 0 0"
+      <components:FeaturesView Grid.Column="1" Margin="10 0 0 15"
                                Visibility="{Binding DataContext.FeatureVis, RelativeSource={RelativeSource AncestorType=Grid}}"
                                DataContext="{Binding FeaturesViewModel}"/>
-      <components:WorkItemsView Grid.Column="1" Margin="10 0 0 0"
+      <components:WorkItemsView Grid.Column="1" Margin="10 0 0 15"
                                 Visibility="{Binding DataContext.WorkItemsVis, RelativeSource={RelativeSource AncestorType=Grid}}"
                                 DataContext="{Binding WorkItemsViewModel}"/>
 

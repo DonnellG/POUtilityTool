@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:POUtilityTool.Components"
              xmlns:vm="clr-namespace:POUtilityTool.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="350" d:DesignWidth="800">
   <Grid>
     <Border BorderBrush="{StaticResource BorderTypical}" BorderThickness="1.5" CornerRadius="10" Padding="15" SnapsToDevicePixels="True">
       <StackPanel>
@@ -16,8 +16,10 @@
         <TextBox Text="{Binding OrgName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="Project:"/>
         <TextBox Text="{Binding Project, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Area Path"/>
+        <TextBlock Text="Area Path:"/>
         <TextBox Text="{Binding AreaPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Excel Sheet Name:"/>
+        <TextBox Text="{Binding ExcelSheetName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Content="Select you Excel File"
                 Command="{Binding ExcelBrowseFileCommand}"
                 Margin="0,10,0,5"/>
