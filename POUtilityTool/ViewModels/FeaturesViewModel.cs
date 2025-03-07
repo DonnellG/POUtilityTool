@@ -25,6 +25,17 @@ namespace POUtilityTool.ViewModels
             FeaturesToExcelCommand = new FeaturesToExcelCommand(this);
 
             Features = new ObservableCollection<Feature>();
+            Feature donnelljr = new Feature("Donnell Jr.");
+            donnelljr.Id = 18372;
+            donnelljr.spikeClosedPercentage = 83;
+            donnelljr.technicalStoryClosedPercentage = 28;
+            donnelljr.userStoryClosedPercentage = 30;
+            Features.Add(donnelljr);
+            Features.Add(new Feature("Kristina"));
+            Features.Add(new Feature("Quentin"));
+            Features.Add(new Feature("Donnell Sr."));
+            Features.Add(new Feature("Angelina"));
+            Features.Add(new Feature("Deandre"));
         }
         public void UpdateRanks()
         {
@@ -43,7 +54,10 @@ namespace POUtilityTool.ViewModels
         }
         public void FeaturesToExcel()
         {
-            
+            POUtilityToolViewModel.ExcelHelper.FilePath = POUtilityToolViewModel.UserInfoViewModel.ExcelFilePath;
+            POUtilityToolViewModel.ExcelHelper.OpenExcelFile();
+            POUtilityToolViewModel.ExcelHelper.AddFeaturesToSheet(POUtilityToolViewModel.UserInfoViewModel.ExcelSheetName, Features.ToList<Feature>());
+            POUtilityToolViewModel.ExcelHelper.CloseExcel();
         }
     }
 }

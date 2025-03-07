@@ -120,6 +120,7 @@ namespace POUtilityTool.ViewModels.Helpers
         {
             var qFeatures = new ObservableCollection<Feature>();
             var features = await this.QueryFeatures(project, areaPath).ConfigureAwait(false);
+            int count = 0; //remove when done testing
 
             foreach (var feature in features)
             {
@@ -141,6 +142,10 @@ namespace POUtilityTool.ViewModels.Helpers
                 qFeature.CalculateAllPercentages();
 
                 qFeatures.Add(qFeature);
+
+
+                count++; //remove when done testing
+                if (count == 5) { break; } //remove when done testing
             }
 
             return qFeatures;

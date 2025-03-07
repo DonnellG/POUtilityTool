@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace POUtilityTool.ViewModels.Helpers
 {
-    internal class PPTHelper
+    public class PPTHelper
     {
+        public PPTHelper()
+        {
+            
+        }
+
     }
 }

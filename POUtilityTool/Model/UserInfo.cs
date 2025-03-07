@@ -15,6 +15,7 @@ namespace POUtilityTool.Model
         public string AreaPath { get; set; }
         public string ExcelFilePath { get; set; }
         public string PPTFilePath { get; set; }
+        public string ExcelSheetName { get; set; }
 
     }
 }

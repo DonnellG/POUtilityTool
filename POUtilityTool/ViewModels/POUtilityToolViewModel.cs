@@ -14,6 +14,7 @@ namespace POUtilityTool.ViewModels
     {
         //ViewModels
         public QueryHelper QueryHelper { get; set; }
+        public ExcelHelper ExcelHelper { get; set; }
         public POUltilityToolListingViewModel POUltilityToolListingViewModel { get; }
         public POUltilityToolDetailsViewModel POUltilityToolDetailsViewModel { get; }
         public UserInfoViewModel UserInfoViewModel { get; set; }
@@ -62,6 +63,7 @@ namespace POUtilityTool.ViewModels
         public POUtilityToolViewModel()
         {
             QueryHelper = new QueryHelper();  //I need to use the same helper for each Vis... maybe??
+            ExcelHelper = new ExcelHelper();
 
             //Init Models
             POUltilityToolListingViewModel = new POUltilityToolListingViewModel(this);

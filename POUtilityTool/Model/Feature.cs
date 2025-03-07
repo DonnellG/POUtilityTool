@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.Services.WebApi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,10 @@ namespace POUtilityTool.Model
         public int spikeClosed { get; set; }
         public double spikeClosedPercentage { get; set; }
         public int activeWorkItems { get; set; }
+        public int totalClosedWorkItems { get; set; }
+        public int totalWorkItems { get; set; }
+        public double currentSprintProgressPercent { get; set; }
+        public double nextSprintProgressPercent { get; set; }
 
         public Feature(string name)
         {
@@ -29,31 +34,22 @@ namespace POUtilityTool.Model
 
         public void CalculateAllPercentages()
         {
-            CalculateUserStoryPercentage();
-            CalculateTechnicalStoryPercentage();
-            CalculateSpikePercentage();
+            this.userStoryClosedPercentage = CalculatePercentage(userStoryClosed, userStoryCount);
+            this.technicalStoryClosedPercentage = CalculatePercentage(technicalStoryClosed, technicalStoryCount);
+            this.spikeClosedPercentage = CalculatePercentage(spikeClosed, spikeCount);
+            this.totalClosedWorkItems = userStoryClosed + technicalStoryClosed + spikeClosed;
+            this.totalWorkItems = userStoryCount + technicalStoryCount + spikeCount;
+            this.currentSprintProgressPercent = CalculatePercentage(totalClosedWorkItems, totalWorkItems);
+            this.nextSprintProgressPercent = CalculatePercentage(totalClosedWorkItems + activeWorkItems, totalWorkItems);
         }
 
-        public void CalculateUserStoryPercentage()
+        public double CalculatePercentage(double numerator, double denominator)
         {
-            if (userStoryCount != 0)
+            if (denominator != 0)
             {
-                this.userStoryClosedPercentage = (double)userStoryClosed / userStoryCount;
+                return numerator / denominator;
             }
-        }
-        public void CalculateTechnicalStoryPercentage()
-        {
-            if (technicalStoryCount != 0)
-            {
-                this.technicalStoryClosedPercentage = (double)technicalStoryClosed / technicalStoryCount;
-            }
-        }
-        public void CalculateSpikePercentage()
-        {
-            if (spikeCount != 0)
-            {
-                this.spikeClosedPercentage = (double)spikeClosed / spikeCount;
-            }
+            return 0;
         }
     }
 }

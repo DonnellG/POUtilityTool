@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using POUtilityTool.Model;
 
 namespace POUtilityTool.ViewModels.Helpers
 {
@@ -15,18 +16,34 @@ namespace POUtilityTool.ViewModels.Helpers
         private Excel.Application excelApp;
         private Excel.Workbooks workbooksAPP;
         public Excel._Workbook excelWorkbook;
+        private string filePath;
 
-        public ExcelHelper(string filepath)
+        public string FilePath
         {
+            get { return filePath; }
+            set { filePath = value; }
+        }
+
+
+        public ExcelHelper()
+        {
+            excelApp = new Excel.Application();
+            workbooksAPP = (Excel.Workbooks)excelApp.Workbooks;
+        }
+
+        public void OpenExcelFile()
+        {
+            if (filePath == "")
+            {
+                return;
+            }
             try
             {
-                excelApp = new Excel.Application();
-                workbooksAPP = (Excel.Workbooks)excelApp.Workbooks;
-                excelWorkbook = (Excel._Workbook)(workbooksAPP.Open(filepath));
+                excelWorkbook = (Excel._Workbook)(workbooksAPP.Open(this.filePath));
             }
             catch (Exception)
             {
-                throw;
+                throw; //TODO: Needs to be implemented better. This is really really lazy. Bad Donnell
             }
         }
 
